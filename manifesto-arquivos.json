@@ -1,0 +1,49 @@
+{
+  "edition": "2026-09-10",
+  "scope": "Cinco artigos: 01 a 05. Não inclui artigo 06, artigo 07 ou CAPAG.",
+  "verification": "SHA-256 identifica os arquivos distribuídos; não certifica validade científica.",
+  "files": [
+    {
+      "file": "artigo-01.pdf",
+      "bytes": 926484,
+      "sha256": "f1ae15db633e2aceca8b9ff41f9d3f9ebed46f054e6d226b6e028838ea51881e",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "artigo-02.pdf",
+      "bytes": 815571,
+      "sha256": "9b02077980d0ce920f4232d90d5fa30cbe4d0a5fe22c5b0edb89bee5a2c04a59",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "artigo-03.pdf",
+      "bytes": 357461,
+      "sha256": "948a74f024b74fb419dac6281125bfd8b2607063e72312fd087a000d57d00442",
+      "note": "Cópia pública: correção declarada de atribuições humanas; original preservado."
+    },
+    {
+      "file": "artigo-04.pdf",
+      "bytes": 882670,
+      "sha256": "b4d56c608ad6184462dab69d17633f12434d482c869409852489fb0d0474c1fc",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "artigo-05.pdf",
+      "bytes": 424192,
+      "sha256": "9dc239fce91e3f28fb90147244917d147229b7f900d8f58d87248c18e1798b29",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "suplemento-01.pdf",
+      "bytes": 430710,
+      "sha256": "a503f5ab83161104b512a0ae87c9a0f3ce1053c9ddf37f4c419e8635d3c31101",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "suplemento-02.pdf",
+      "bytes": 1428011,
+      "sha256": "5e0566a7de87fd91dbf45607c442ae82e380872ce810c3e0da2b5252be6de402",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    }
+  ]
+}
