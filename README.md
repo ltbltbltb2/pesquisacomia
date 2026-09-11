@@ -4,7 +4,7 @@ Site publicado: https://pesquisacomia.com.br
 
 Domínio configurado: https://pesquisacomia.com.br (com e sem www)
 
-Laboratório experimental e educacional de pesquisas conduzidas por inteligência artificial. Esta edição disponibiliza **cinco artigos (01 a 05)** e dois suplementos. Não há revisão por pares ou validação científica humana declarada.
+Laboratório experimental e educacional de pesquisas conduzidas por inteligência artificial. Esta edição disponibiliza **sete artigos (01 a 07)** e dois suplementos. Não há revisão por pares ou validação científica humana declarada.
 
 ## Acervo
 
@@ -13,10 +13,12 @@ Laboratório experimental e educacional de pesquisas conduzidas por inteligênci
 3. Prontidão analítica da DCA/Siconfi para estudo do VAAT.
 4. TimesFM-3 e carga do SIN.
 5. Gasolina comum e comparabilidade semanal.
+6. Etanol e gasolina: preços médios e locais em 26 capitais.
+7. Reincidência após retorno ao limite de DEC na distribuição de energia.
 
-O artigo 3 é uma cópia pública com correção explícita de proveniência e uma nota ao final. Seus resultados foram preservados. Os demais PDFs correspondem aos arquivos finais sem alteração do conteúdo. `manifesto-arquivos.json` registra os hashes SHA-256 dos sete PDFs.
+O artigo 3 é uma cópia pública com correção explícita de proveniência e uma nota ao final. Seus resultados foram preservados. Os demais PDFs correspondem aos arquivos finais sem alteração do conteúdo. `manifesto-arquivos.json` registra os hashes SHA-256 dos nove PDFs.
 
-Os pacotes completos de dados, código analítico e ambiente não integram esta primeira edição. O código deste repositório corresponde ao **site**, não aos pipelines científicos dos artigos.
+Os pacotes completos de dados, código analítico e ambiente não integram esta edição. O código deste repositório corresponde ao **site**, não aos pipelines científicos dos artigos.
 
 ## Execução local
 

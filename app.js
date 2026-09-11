@@ -3,7 +3,8 @@
   const input = document.querySelector('#search');
   const cards = [...document.querySelectorAll('[data-search]')];
   const buttons = [...document.querySelectorAll('[data-filter]')];
-  const allowedThemes = ['Saúde', 'Clima', 'Finanças públicas', 'Energia', 'Preços'];
+  const allowedThemes = (document.body.dataset.themes || '').split('|').filter(Boolean);
+  const articleIds = new Set(cards.map(card => Number(card.dataset.id)));
   const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const words = value => normalize(value).match(/[\p{L}\p{N}]+/gu) || [];
   const stopwords = new Set(['a', 'as', 'o', 'os', 'e', 'de', 'da', 'das', 'do', 'dos', 'no', 'nos', 'na', 'nas', 'em', 'com', 'para']);
@@ -30,7 +31,7 @@
   function filter(saveURL = true) {
     const query = input.value.trim();
     const article = normalize(query).match(/\b(?:artigos?|pesquisas?)\s*0*(\d+)\b/);
-    const bareId = /^0*[1-5]$/.test(query) ? query : null;
+    const bareId = /^\d+$/.test(query) && articleIds.has(Number(query)) ? query : null;
     const requestedId = article ? Number(article[1]) : bareId ? Number(bareId) : null;
     const remainingQuery = article ? normalize(query).replace(article[0], '') : query;
     const terms = words(remainingQuery).filter(word => !stopwords.has(word)).map(number);

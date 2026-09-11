@@ -1,6 +1,6 @@
 {
-  "edition": "2026-09-10",
-  "scope": "Cinco artigos: 01 a 05. Não inclui artigo 06, artigo 07 ou CAPAG.",
+  "edition": "2026-09-11",
+  "scope": "7 artigos: 01, 02, 03, 04, 05, 06, 07.",
   "verification": "SHA-256 identifica os arquivos distribuídos; não certifica validade científica.",
   "files": [
     {
@@ -31,6 +31,18 @@
       "file": "artigo-05.pdf",
       "bytes": 424192,
       "sha256": "9dc239fce91e3f28fb90147244917d147229b7f900d8f58d87248c18e1798b29",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "artigo-06.pdf",
+      "bytes": 354584,
+      "sha256": "c15e3f6dc75730b083c1bf05baab4cf375cf41fa759957724800c18524a258a8",
+      "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
+    },
+    {
+      "file": "artigo-07.pdf",
+      "bytes": 234317,
+      "sha256": "4491bbd081167e1e98f6d5b61ec51b93532c440355d2b761da169be6500233b1",
       "note": "Cópia do arquivo final do acervo, sem alteração de conteúdo."
     },
     {
