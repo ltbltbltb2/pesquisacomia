@@ -9,3 +9,4 @@ README.md
 .wrangler
 security-worker.mjs
 security-worker.test.mjs
+robots-domain.json

@@ -35,6 +35,20 @@ test('unconfigured hosts are rejected instead of producing an open redirect', as
   }
 });
 
+test('domain robots delivery preserves its existing policy; the temporary hostname keeps its original file', async () => {
+  const domainPolicy = JSON.parse(readFileSync('robots-domain.json', 'utf8'));
+  for (const host of hosts.slice(0, 2)) for (const method of ['GET', 'HEAD']) {
+    const response = await worker.fetch(new Request(`https://${host}/robots.txt`, { method }), failAssets);
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), method === 'HEAD' ? '' : domainPolicy);
+    assert.equal(response.headers.get('Content-Length'), String(Buffer.byteLength(domainPolicy)));
+    assert.equal(response.headers.get('X-Content-Type-Options'), 'nosniff');
+    const redirect = await worker.fetch(new Request(`http://${host}/robots.txt`), failAssets);
+    assert.equal(redirect.status, 308);
+  }
+
+});
+
 test('HTML and custom 404 documents receive restrictive policies without body changes', async () => {
   for (const status of [200, 404]) {
     const body = readFileSync(status === 200 ? 'index.html' : '404.html');
@@ -86,8 +100,17 @@ test('HEAD, conditional requests and existing asset redirects keep their HTTP se
     assert.equal(response.status, status);
     assert.equal(await response.text(), '');
     assert.equal(response.headers.get('ETag'), '"v1"');
+    assert.ok(response.headers.get('Content-Security-Policy').includes("script-src 'self'"));
     if (status === 307) assert.equal(response.headers.get('Location'), '/pesquisa-01');
   }
+});
+
+test('a PDF 304 without Content-Type keeps its PDF policy instead of acquiring HTML restrictions', async () => {
+  const response = await worker.fetch(new Request('https://pesquisacomia.com.br/artigo-01.pdf'), {
+    ASSETS: { fetch: () => new Response(null, { status: 304, headers: { ETag: '"pdf-v1"' } }) },
+  });
+  assert.equal(response.status, 304);
+  assert.equal(response.headers.get('Content-Security-Policy'), "frame-ancestors 'none'; base-uri 'none'; form-action 'none'");
 });
 
 test('asset failure produces a protected, non-cacheable response without exposing error details', async () => {

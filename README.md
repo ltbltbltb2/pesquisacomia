@@ -34,7 +34,9 @@ Hospedagem estática com Cloudflare Workers Static Assets. `wrangler.jsonc` defi
 
 ## Proteção de transporte e conteúdo
 
-`security-worker.mjs` redireciona HTTP para HTTPS com status 308 nos três endereços publicados, preservando caminhos e parâmetros. Nas respostas HTTPS, aplica HSTS somente ao host visitado, proteção contra incorporação em frames, prevenção de interpretação incorreta de tipos e uma política de conteúdo restrita nas páginas HTML. Os PDFs mantêm seu tipo, conteúdo e cache. Requisições condicionais e Range são encaminhadas sem alterações.
+O domínio principal e `www` usam a regra nativa **HTTPS obrigatório** da Cloudflare (308). `security-worker.mjs` também mantém o redirecionamento 308, inclusive no endereço `workers.dev`. Ambos preservam caminhos, parâmetros e método HTTP. Nas respostas HTTPS, a camada aplica HSTS somente ao host visitado, proteção contra incorporação em frames, prevenção de interpretação incorreta de tipos e uma política de conteúdo restrita, inclusive nas respostas de validação do cache (304). Os PDFs mantêm seu tipo, conteúdo e cache. Requisições condicionais e Range são encaminhadas sem alterações.
+
+A geração automática do `robots.txt` pela Cloudflare convertia seus redirecionamentos HTTP em respostas 200. A política que já era servida no domínio foi preservada integralmente em `robots-domain.json`, utilizado pelo Worker, e a geração automática foi desativada. A política do endereço `workers.dev` continua no `robots.txt` original. Os controles de bloqueio de robôs não foram alterados; futuras atualizações do texto da política do domínio devem ser versionadas neste repositório.
 
 A camada executa antes dos arquivos estáticos. No plano Workers Free, essas invocações usam o limite de 100 mil requisições por dia; os acessos deixam de seguir o caminho de entrega exclusivamente estática. O plano de hospedagem não foi alterado. Domínios adicionais precisam ser incluídos explicitamente na lista de hosts permitidos.
 
