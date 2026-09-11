@@ -35,7 +35,7 @@ test('unconfigured hosts are rejected instead of producing an open redirect', as
   }
 });
 
-test('domain robots delivery preserves its existing policy; the temporary hostname keeps its original file', async () => {
+test('domain robots delivery preserves its existing policy', async () => {
   const domainPolicy = JSON.parse(readFileSync('robots-domain.json', 'utf8'));
   for (const host of hosts.slice(0, 2)) for (const method of ['GET', 'HEAD']) {
     const response = await worker.fetch(new Request(`https://${host}/robots.txt`, { method }), failAssets);

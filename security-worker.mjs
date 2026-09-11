@@ -65,8 +65,8 @@ export default {
       }), false, url.pathname);
     }
     // Preserve the domain's existing robots policy without the provider rewriting
-    // HTTP redirect responses to 200. The workers.dev policy stays in ASSETS.
-    if (url.pathname === '/robots.txt' && !url.hostname.endsWith('.workers.dev')
+    // HTTP redirect responses to 200. Preserve the custom-domain policy.
+    if (url.pathname === '/robots.txt'
       && (request.method === 'GET' || request.method === 'HEAD')) {
       return protect(new Response(request.method === 'HEAD' ? null : domainRobots, {
         headers: {

@@ -10,3 +10,11 @@ README.md
 security-worker.mjs
 security-worker.test.mjs
 robots-domain.json
+.privacy-deps
+privacy-check.py
+privacy-build.mjs
+privacy-requirements.txt
+privacy-tests.py
+__pycache__
+privacy-approved-media.json
+*.bundle

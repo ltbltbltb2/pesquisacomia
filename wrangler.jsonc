@@ -10,5 +10,8 @@
     "not_found_handling": "404-page"
   },
   "preview_urls": false,
-  "workers_dev": false
+  "workers_dev": false,
+  "build": {
+    "command": "node privacy-build.mjs"
+  }
 }
