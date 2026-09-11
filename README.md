@@ -32,6 +32,14 @@ Abra http://localhost:4173. Os arquivos HTML, CSS e JavaScript são o código co
 
 Hospedagem estática com Cloudflare Workers Static Assets. `wrangler.jsonc` define a pasta de publicação. O repositório está conectado à Cloudflare para publicar atualizações da branch `main`. A publicação usa `npx wrangler deploy`, sem etapa de compilação. Os domínios são administrados no painel da Cloudflare. Nenhuma chave deve ser adicionada ao repositório.
 
+## Proteção de transporte e conteúdo
+
+`security-worker.mjs` redireciona HTTP para HTTPS com status 308 nos três endereços publicados, preservando caminhos e parâmetros. Nas respostas HTTPS, aplica HSTS somente ao host visitado, proteção contra incorporação em frames, prevenção de interpretação incorreta de tipos e uma política de conteúdo restrita nas páginas HTML. Os PDFs mantêm seu tipo, conteúdo e cache. Requisições condicionais e Range são encaminhadas sem alterações.
+
+A camada executa antes dos arquivos estáticos. No plano Workers Free, essas invocações usam o limite de 100 mil requisições por dia; os acessos deixam de seguir o caminho de entrega exclusivamente estática. O plano de hospedagem não foi alterado. Domínios adicionais precisam ser incluídos explicitamente na lista de hosts permitidos.
+
+Verificação local: `node --test security-worker.test.mjs`. A política não inclui analytics, novos serviços ou configurações de autenticação das contas.
+
 ## Contribuições
 
 Use Issues para relatar reproduções e divergências. Informe estudo, versão, ambiente, passos e evidências. Não inclua credenciais, dados pessoais ou conteúdo confidencial.

@@ -7,3 +7,5 @@ wrangler.jsonc
 README.md
 .assetsignore
 .wrangler
+security-worker.mjs
+security-worker.test.mjs
