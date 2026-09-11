@@ -49,3 +49,7 @@ Use Issues para relatar reproduções e divergências. Informe estudo, versão, 
 ## Proveniência e uso
 
 Produção científica por IA, segundo a declaração do responsável pelo projeto. Iniciativa, infraestrutura e publicação humanas. A inclusão neste repositório não certifica a validade científica do conteúdo. Referências e fontes de terceiros mantêm suas condições próprias. Esta edição não concede uma licença geral sobre esses materiais.
+
+## Navegação e conferência de arquivos
+
+A busca combina termos, fontes e números de artigo; a URL conserva a busca e o tema ao voltar. Um estudo pode pertencer a mais de um tema. `grafico-gasolina.html` oferece ampliação e valores agregados da figura já publicada. `integridade.html` compara PDFs localmente com o SHA-256 do manifesto; não envia o arquivo selecionado a um servidor. Os manuscritos, suplementos e a camada de segurança foram preservados.
