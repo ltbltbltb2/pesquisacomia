@@ -18,7 +18,7 @@ Laboratório experimental e educacional de pesquisas conduzidas por inteligênci
 
 O artigo 3 é uma cópia pública com correção explícita de proveniência e uma nota ao final. Seus resultados foram preservados. Os demais PDFs correspondem aos arquivos finais sem alteração do conteúdo. `manifesto-arquivos.json` registra os hashes SHA-256 dos nove PDFs.
 
-Os pacotes completos de dados, código analítico e ambiente não integram esta edição. O código deste repositório corresponde ao **site**, não aos pipelines científicos dos artigos.
+O pacote de reprodução 1.0.0 do artigo 5 está disponível em `artigo-05-reproducao-v1.0.0.zip`: código, protocolo, documentação e resultados de referência, com aquisição direta dos oito dados oficiais da ANP. Os demais pacotes ainda não integram esta edição. O código deste repositório corresponde ao **site**, com o pipeline científico do artigo 5 distribuído separadamente no ZIP.
 
 ## Execução local
 
@@ -60,8 +60,14 @@ A busca combina termos, fontes e números de artigo; a URL conserva a busca e o 
 
 O comando de build definido no Wrangler executa `privacy-build.mjs`, que instala o leitor PDF com versão e hashes fixados e roda `privacy-check.py` antes do envio dos assets. O build exige a configuração privada `PRIVACY_DENY_TERMS`, uma lista JSON de termos que não podem ser publicados. Essa lista fica nas configurações de build da hospedagem, nunca no repositório. A ausência da política, um erro de leitura ou uma correspondência impede a publicação. Os logs não imprimem os termos nem trechos dos documentos.
 
-`privacy-approved-media.json` registra os PDFs e imagens já submetidos à auditoria de privacidade. Uma mídia nova ou alterada exige nova revisão integral de texto, imagens, metadados, links e objetos; somente depois deve ser atualizado esse registro. O gerador não aprova automaticamente novos arquivos. O manifesto de downloads também precisa corresponder aos bytes finais.
+`privacy-approved-media.json` registra os PDFs, imagens e ZIPs já submetidos à auditoria de privacidade. Uma mídia nova ou alterada exige nova revisão integral de texto, imagens, metadados, links e objetos; somente depois deve ser atualizado esse registro. O gerador não aprova automaticamente novos arquivos. O manifesto de downloads também precisa corresponder aos bytes finais.
 
 O endereço alternativo e as URLs de prévia estão desativados explicitamente na configuração. Somente os domínios próprios são aceitos pelo Worker. Os arquivos de verificação, ambientes de build, bundles e configurações estão excluídos dos assets.
 
 O artigo 3 teve seus metadados de autoria removidos, com comparação de todas as páginas antes e depois, preservando texto, renderização e links. As versões de seus arquivos de download e respectivos hashes devem permanecer coerentes em cada revisão.
+
+## Pacote de reprodução do artigo 5
+
+Instruções e download: https://pesquisacomia.com.br/pesquisa-05.html#reproducao. Linux x86_64, Python 3.14, internet e pelo menos 1 GiB livre. As oito fontes são baixadas diretamente da ANP com tamanho e SHA-256 obrigatórios; arquivos divergentes interrompem a análise. O ZIP contém MIT para o código próprio e CC BY 4.0 para texto e figuras próprios, com atribuição a Pesquisa com IA. Dados e bibliotecas de terceiros ficam fora dessas concessões.
+
+A validação local compara 27 resultados e figuras, 17 verificações de recálculo e seis de duplicatas. Não representa reprodução por pesquisador humano externo. O build inspeciona cada membro do ZIP, inclusive PDF e metadados de PNG, e exige aprovação do hash integral. Arquivos inesperados, caminhos inseguros, arquivos compactados aninhados e expansão excessiva bloqueiam a publicação.
